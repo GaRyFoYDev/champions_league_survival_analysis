@@ -5,6 +5,7 @@ DB_FILE = 'db/survival_football.db'
 
 LOG_FILE_TEAMS = 'logs/teams.log'
 LOG_FILE_MATCHES = 'logs/matches.log'
+LOG_FILE_VALO_AGES = 'logs/infos.log'
 
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"

@@ -38,12 +38,14 @@ def parse_match_data(soup, conn):
     team2_list = soup.find_all(
         'td', class_="hauptlink no-border-links no-border-rechts hide-for-small spieltagsansicht-vereinsname")
     scores = soup.find_all('span', class_="matchresult finished")
+    
 
     for t1, t2, score in zip(team1_list, team2_list, scores):
         t1_name = t1.find_all('a')[1]['title'] if len(
             t1.find_all('a')) > 1 else t1.find('a')['title']
         t2_name = t2.find('a')['title'] if t2.find('a') else "N/A"
         sc1, sc2 = score.text.split(':')
+        
 
         # Récupère les IDs des équipes depuis la table `teams`
         cursor.execute("SELECT id FROM teams WHERE team = ?", (t1_name,))
@@ -56,6 +58,7 @@ def parse_match_data(soup, conn):
             matches.append((t1_id[0], sc1.strip(), t2_id[0], sc2.strip()))
         else:
             logger.warning(f"Équipe non trouvée : {t1_name} ou {t2_name}")
+
 
     return matches
 
