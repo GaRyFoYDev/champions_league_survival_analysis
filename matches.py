@@ -91,7 +91,7 @@ def main():
     conn.commit()
 
     for annee in tqdm(ANNEES, desc="Traitement des années"):
-        for key, phase_tournoi in tqdm(PHASES_TOURNOI.items(), desc=f"Traitement des groupes pour {annee}", leave=False):
+        for key, phase_tournoi in tqdm(PHASES_TOURNOI.items(), desc=f"Traitement des matchs pour {annee}", leave=False):
             url = f'https://www.transfermarkt.fr/uefa-champions-league/spieltag/pokalwettbewerb/CL/plus/0?saison_id={
                 annee}&gruppe={key}'
             soup = fetch_page_content(url)
